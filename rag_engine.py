@@ -1,9 +1,11 @@
 import os
 import json
 import math
+import time
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from google.genai.errors import ServerError, APIError
 
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
@@ -12,7 +14,6 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
-# Load indexed rulebook into memory
 INDEX_FILE = "sections_index.json"
 if not os.path.exists(INDEX_FILE):
     raise FileNotFoundError(f"{INDEX_FILE} not found. Run ingest.py first!")
@@ -21,7 +22,6 @@ with open(INDEX_FILE, "r", encoding="utf-8") as f:
     SECTIONS_DATABASE = json.load(f)
 
 def cosine_similarity(vec1, vec2):
-    """Pure Python cosine similarity calculation."""
     dot = sum(a * b for a, b in zip(vec1, vec2))
     norm1 = math.sqrt(sum(a * a for a in vec1))
     norm2 = math.sqrt(sum(b * b for b in vec2))
@@ -30,12 +30,20 @@ def cosine_similarity(vec1, vec2):
     return dot / (norm1 * norm2)
 
 def retrieve_top_sections(query, top_k=5):
-    """Embeds user query and returns top_k most relevant sections with scores."""
-    res = client.models.embed_content(
-        model="gemini-embedding-001",
-        contents=query
-    )
-    query_vector = res.embeddings[0].values
+    # Retry embedding call if needed
+    for attempt in range(4):
+        try:
+            res = client.models.embed_content(
+                model="gemini-embedding-001",
+                contents=query
+            )
+            query_vector = res.embeddings[0].values
+            break
+        except (ServerError, APIError) as e:
+            if attempt < 3:
+                time.sleep(3 * (attempt + 1))
+            else:
+                raise e
 
     scored_sections = []
     for sec in SECTIONS_DATABASE:
@@ -48,7 +56,6 @@ def retrieve_top_sections(query, top_k=5):
             "score": round(score, 4)
         })
 
-    # Sort descending by similarity score
     scored_sections.sort(key=lambda x: x["score"], reverse=True)
     return scored_sections[:top_k]
 
@@ -73,15 +80,13 @@ Return your response strictly in the following JSON format:
   "conflict_details": {
       "conflicting_sections": ["Section X.Y", "Section A.B"],
       "nature_of_conflict": "Summary of contradiction"
-  } // or null if no conflict
+  }
 }
 """
 
 def query_rulebook(query: str):
-    """End-to-end RAG pipeline for a single query."""
     top_passages = retrieve_top_sections(query, top_k=5)
 
-    # Build context string
     context_blocks = []
     for p in top_passages:
         context_blocks.append(f"[{p['id']} - {p['title']} (Score: {p['score']})]\n{p['text']}")
@@ -94,22 +99,33 @@ RETRIEVED RULEBOOK PASSAGES:
 {context_text}
 """
 
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=user_message,
-        config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT,
-            response_mime_type="application/json",
-            temperature=0.0
-        )
-    )
+    response = None
+    # Retry on temporary Google server overload (503/429)
+    for attempt in range(4):
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.6-flash",
+                contents=user_message,
+                config=types.GenerateContentConfig(
+                    system_instruction=SYSTEM_PROMPT,
+                    response_mime_type="application/json",
+                    temperature=0.0
+                )
+            )
+            break
+        except (ServerError, APIError) as e:
+            if attempt < 3:
+                print(f"    (Google server busy, retrying in {(attempt + 1) * 3}s...)")
+                time.sleep((attempt + 1) * 3)
+            else:
+                raise e
 
     try:
         parsed_result = json.loads(response.text)
     except Exception:
         parsed_result = {
             "status": "answered",
-            "answer": response.text,
+            "answer": response.text if response else "Error parsing response.",
             "citations": [],
             "conflict_details": None
         }
