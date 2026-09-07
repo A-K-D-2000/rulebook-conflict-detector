@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Rulebook That Argues With Itself</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --answered: #10b981;
+      --not-covered: #f59e0b;
+      --conflict: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+    .header { margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    .header h1 { font-size: 1.8rem; color: #fff; margin-bottom: 6px; }
+    .header p { color: var(--text-muted); font-size: 0.95rem; }
+
+    .input-section { margin-bottom: 24px; }
+    .search-box { display: flex; gap: 12px; margin-bottom: 12px; }
+    input[type="text"] {
+      flex: 1; padding: 14px 18px; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--card-bg); color: #fff; font-size: 1rem; outline: none;
+    }
+    input[type="text"]:focus { border-color: var(--accent); }
+    button {
+      background: #2563eb; color: #fff; border: none; padding: 14px 28px;
+      border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;
+    }
+    button:hover { background: #1d4ed8; }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .quick-chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .quick-chips span { font-size: 0.85rem; color: var(--text-muted); }
+    .chip {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+      padding: 6px 12px; font-size: 0.8rem; color: var(--accent); cursor: pointer;
+    }
+    .chip:hover { border-color: var(--accent); }
+
+    /* Side-by-Side Layout */
+    .results-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; margin-top: 24px;
+    }
+    @media (max-width: 900px) {
+      .results-grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px;
+    }
+    .card-title {
+      font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; display: flex;
+      justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block; padding: 4px 12px; border-radius: 20px;
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+    }
+    .badge.answered { background: rgba(16, 185, 129, 0.2); color: var(--answered); border: 1px solid var(--answered); }
+    .badge.not_covered { background: rgba(245, 158, 11, 0.2); color: var(--not-covered); border: 1px solid var(--not-covered); }
+    .badge.conflict { background: rgba(239, 68, 68, 0.2); color: var(--conflict); border: 1px solid var(--conflict); }
+
+    .answer-body { font-size: 1rem; line-height: 1.6; margin-bottom: 16px; white-space: pre-line; }
+
+    .conflict-box {
+      background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--conflict);
+      padding: 12px 16px; border-radius: 4px; margin-bottom: 16px;
+    }
+    .conflict-box h4 { color: var(--conflict); margin-bottom: 6px; font-size: 0.9rem; }
+
+    .citations-box {
+      border-top: 1px solid var(--border); padding-top: 12px; font-size: 0.85rem; color: var(--text-muted);
+    }
+    .citations-box strong { color: var(--text); }
+
+    /* Passages Column */
+    .passage-item {
+      background: #0f172a; border: 1px solid var(--border); border-radius: 8px;
+      padding: 14px; margin-bottom: 14px;
+    }
+    .passage-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+    }
+    .passage-ref { font-weight: 700; color: var(--accent); font-size: 0.9rem; }
+    .passage-score {
+      background: #334155; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: #cbd5e1;
+    }
+    .passage-title { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; font-style: italic; }
+    .passage-text { font-size: 0.85rem; line-height: 1.5; color: #cbd5e1; max-height: 140px; overflow-y: auto; }
+
+    .spinner { display: none; text-align: center; padding: 40px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>The Rulebook That Argues With Itself</h1>
+    <p>RAG Engine with Clause Citations, Silence Detection, and Contradiction Detection</p>
+  </div>
+
+  <div class="input-section">
+    <form id="askForm" class="search-box">
+      <input type="text" id="queryInput" placeholder="Ask a question about university regulations..." required>
+      <button type="submit" id="submitBtn">Ask Rulebook</button>
+    </form>
+
+    <div class="quick-chips">
+      <span>Sample Queries:</span>
+      <div class="chip" onclick="setQuery('What attendance percentage is strictly required for exams?')">Attendance Rule (Answered)</div>
+      <div class="chip" onclick="setQuery('Can a student miss an exam to attend a sibling wedding?')">Sibling Wedding (Not Covered)</div>
+      <div class="chip" onclick="setQuery('What is the minimum attendance percentage required to sit for final exams, and can it be lowered?')">Attendance Threshold (Conflict)</div>
+      <div class="chip" onclick="setQuery('What CGPA is required to retain an Institutional Merit Scholarship?')">Scholarship CGPA (Conflict)</div>
+    </div>
+  </div>
+
+  <div class="spinner" id="loadingSpinner">Searching rulebook & analyzing regulations...</div>
+
+  <div class="results-grid" id="resultsGrid" style="display: none;">
+    <!-- Left Column: Answer & Analysis -->
+    <div class="card">
+      <div class="card-title">
+        <span>Answer & Policy Analysis</span>
+        <span id="statusBadge" class="badge"></span>
+      </div>
+      <div id="conflictAlert" class="conflict-box" style="display: none;">
+        <h4>⚠️ Contradiction Detected in Rulebook</h4>
+        <p id="conflictDesc"></p>
+      </div>
+      <div class="answer-body" id="answerText"></div>
+      <div class="citations-box" id="citationsBox"></div>
+    </div>
+
+    <!-- Right Column: Retrieved Passages with Scores (Not Hidden) -->
+    <div class="card">
+      <div class="card-title">
+        <span>Retrieved Passages</span>
+        <span style="font-size: 0.8rem; color: var(--text-muted);">Exact Scores Displayed</span>
+      </div>
+      <div id="passagesList"></div>
+    </div>
+  </div>
+
+  <script>
+    function setQuery(text) {
+      document.getElementById('queryInput').value = text;
+      document.getElementById('askForm').dispatchEvent(new Event('submit'));
+    }
+
+    document.getElementById('askForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const query = document.getElementById('queryInput').value.trim();
+      if (!query) return;
+
+      const submitBtn = document.getElementById('submitBtn');
+      const spinner = document.getElementById('loadingSpinner');
+      const resultsGrid = document.getElementById('resultsGrid');
+
+      submitBtn.disabled = true;
+      spinner.style.display = 'block';
+      resultsGrid.style.display = 'none';
+
+      try {
+        const response = await fetch('/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: query })
+        });
+        const data = await response.json();
+
+        // 1. Set Status Badge
+        const badge = document.getElementById('statusBadge');
+        badge.className = `badge ${data.status}`;
+        badge.innerText = data.status.replace('_', ' ');
+
+        // 2. Conflict Alert
+        const conflictBox = document.getElementById('conflictAlert');
+        if (data.status === 'conflict' && data.conflict_details) {
+          conflictBox.style.display = 'block';
+          document.getElementById('conflictDesc').innerText = data.conflict_details.nature_of_conflict || "Conflicting clauses detected.";
+        } else {
+          conflictBox.style.display = 'none';
+        }
+
+        // 3. Answer Text
+        document.getElementById('answerText').innerText = data.answer;
+
+        // 4. Citations
+        const citBox = document.getElementById('citationsBox');
+        if (data.citations && data.citations.length > 0) {
+          citBox.innerHTML = `<strong>Cited Clauses:</strong> ${data.citations.join(', ')}`;
+        } else {
+          citBox.innerHTML = `<strong>Cited Clauses:</strong> None (Corpus silent or unanswerable)`;
+        }
+
+        // 5. Passages (Side-by-Side with Scores)
+        const passagesContainer = document.getElementById('passagesList');
+        passagesContainer.innerHTML = '';
+        data.passages.forEach(p => {
+          const item = document.createElement('div');
+          item.className = 'passage-item';
+          item.innerHTML = `
+            <div class="passage-header">
+              <span class="passage-ref">${p.id}</span>
+              <span class="passage-score">Similarity: ${p.score}</span>
+            </div>
+            <div class="passage-title">${p.title}</div>
+            <div class="passage-text">${p.text}</div>
+          `;
+          passagesContainer.appendChild(item);
+        });
+
+        resultsGrid.style.display = 'grid';
+      } catch (err) {
+        alert('Error querying rulebook: ' + err.message);
+      } finally {
+        submitBtn.disabled = false;
+        spinner.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
