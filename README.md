@@ -99,15 +99,19 @@ Outputs benchmark progress and exports full evaluation logs to `benchmark_result
 
 ```text
 rulebook-conflict-detector/
-├── ingest.py
-├── rag_engine.py
-├── main.py
-├── evaluate.py
-├── rulebook.md
-├── test_questions.json
-├── requirements.txt
-├── benchmark_results.json
 ├── templates/
 │   └── index.html
-└── README.md
+├── .env
+├── .env.example
+├── .gitignore
+├── benchmark_results.json
+├── evaluate.py
+├── ingest.py
+├── main.py
+├── rag_engine.py
+├── README.md
+├── requirements.txt
+├── rulebook.md
+├── sections_index.json
+└── test_questions.json
 ```
