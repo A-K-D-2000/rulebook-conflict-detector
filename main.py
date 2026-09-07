@@ -1,5 +1,6 @@
+import os
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 from rag_engine import query_rulebook
 
@@ -14,6 +15,14 @@ class QueryRequest(BaseModel):
 @app.get("/")
 async def serve_home():
     return FileResponse("templates/index.html")
+
+@app.get("/rulebook-content")
+async def get_rulebook_content():
+    """Serves the full text of rulebook.md to the frontend reader."""
+    if not os.path.exists("rulebook.md"):
+        return JSONResponse({"content": "rulebook.md not found."}, status_code=404)
+    with open("rulebook.md", "r", encoding="utf-8", errors="ignore") as f:
+        return {"content": f.read()}
 
 @app.post("/ask")
 async def ask_endpoint(payload: QueryRequest):

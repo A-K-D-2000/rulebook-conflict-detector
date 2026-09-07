@@ -56,12 +56,12 @@ Section 1.3: Institutional Governance and Jurisdictional Hierarchies
     University Senate, and the Executive Board of Regents.
 2.  The hierarchy of institutional jurisdiction on academic matters is defined
     as follows:
-      - Level I: Course Instructor / Module Coordinator
-      - Level II: Department Chair / Head of Department (HoD)
-      - Level III: Academic Dean of the Respective Faculty
-      - Level IV: Academic Committee / Standing Senate Committee
-      - Level V: University Senate and the Office of the Academic Registrar
-      - Level VI: Board of Regents (Appellate Body of Ultimate Recourse)
+    - Level I: Course Instructor / Module Coordinator
+    - Level II: Department Chair / Head of Department (HoD)
+    - Level III: Academic Dean of the Respective Faculty
+    - Level IV: Academic Committee / Standing Senate Committee
+    - Level V: University Senate and the Office of the Academic Registrar
+    - Level VI: Board of Regents (Appellate Body of Ultimate Recourse)
 3.  Any formal determination, procedural ruling, or disciplinary sanction
     rendered by a superior jurisdictional body automatically supersedes,
     abrogates, and replaces any conflicting decision rendered by a subordinate
@@ -312,15 +312,15 @@ Section 4.1: Unified University Grading Scale
 
 | Letter Grade | Grade Point Value | Percentage Range | Descriptive Evaluation |
 | :----------: | :---------------: | :--------------: | :--------------------- |
-| A+           | 10.00             | 90% – 100%       | Outstanding            |
-| A            | 9.00              | 80% – 89.99%     | Excellent              |
-| B+           | 8.00              | 70% – 79.99%     | Very Good              |
-| B            | 7.00              | 60% – 69.99%     | Good                   |
-| C+           | 6.00              | 55% – 59.99%     | Satisfactory           |
-| C            | 5.00              | 50% – 54.99%     | Pass                   |
-| D            | 4.00              | 40% – 49.99%     | Marginal Pass          |
-| F            | 0.00              | Below 40%        | Fail                   |
-| F-NA         | 0.00              | Debarred         | Non-Attendance Failure |
+|      A+      |       10.00       |    90% – 100%    | Outstanding            |
+|      A       |       9.00        |   80% – 89.99%   | Excellent              |
+|      B+      |       8.00        |   70% – 79.99%   | Very Good              |
+|      B       |       7.00        |   60% – 69.99%   | Good                   |
+|      C+      |       6.00        |   55% – 59.99%   | Satisfactory           |
+|      C       |       5.00        |   50% – 54.99%   | Pass                   |
+|      D       |       4.00        |   40% – 49.99%   | Marginal Pass          |
+|      F       |       0.00        |    Below 40%     | Fail                   |
+|     F-NA     |       0.00        |     Debarred     | Non-Attendance Failure |
 
 2.  Passing grades for all undergraduate degree requirements are A+, A, B+, B,
     C+, C, and D. Postgraduate degree programs require a minimum grade of C
@@ -336,7 +336,7 @@ Section 4.2: Computation of Grade Point Averages (TGPA and CGPA)
     academic semester by dividing the sum of the quality points earned (the
     product of the credit units assigned to a module and the numeric grade point
     value earned) by the total number of credit units attempted in that term:
-    \text{TGPA} = \frac{\sum (\text{Credit Units}_i \times \text{Grade Points}_i)}{\sum \text{Credit Units}_i}
+    \text{TGPA} = \frac{\sum (\text{Credit Units}\_i \times \text{Grade Points}\_i)}{\sum \text{Credit Units}\_i}
 2.  The Cumulative Grade Point Average (CGPA) is computed across all
     instructional terms completed at the University, incorporating all attempted
     courses that carry academic credit units, using the same mathematical ratio
@@ -403,9 +403,9 @@ Section 4.6: Dean’s List and Academic Honors Distinctions
     findings of academic or non-academic disciplinary culpability on record.
 3.  Baccalaureate degrees are conferred with permanent Latin honors based upon
     final graduating CGPA:
-      - Cum Laude: CGPA of 8.50 to 8.99
-      - Magna Cum Laude: CGPA of 9.00 to 9.49
-      - Summa Cum Laude: CGPA of 9.50 to 10.00
+    - Cum Laude: CGPA of 8.50 to 8.99
+    - Magna Cum Laude: CGPA of 9.00 to 9.49
+    - Summa Cum Laude: CGPA of 9.50 to 10.00
 
 Chapter 5: Medical Leave, Compassionate Exceptions, and Special Accommodations
 
@@ -556,10 +556,10 @@ Section 6.3: Invigilation Protocols, Proctor Authority, and Incident Reporting
 Section 6.4: Examination Clashes and Rescheduling Directives
 
 1.  An "Examination Clash" is defined strictly as:
-      - Two examinations scheduled concurrently at the exact same hour and date;
-        or
-      - Three examinations scheduled on the same calendar date spanning
-        consecutive time slots.
+    - Two examinations scheduled concurrently at the exact same hour and date;
+      or
+    - Three examinations scheduled on the same calendar date spanning
+      consecutive time slots.
 2.  Having two examinations on the same day with an intervening break, or having
     examinations on consecutive calendar days, does not constitute an
     examination clash.
@@ -654,12 +654,12 @@ Section 7.4: Tuition Refund Policies for Withdrawals and Cancellations
     Registrar to initiate a financial refund.
 2.  Tuition fee refunds are calculated strictly in accordance with the official
     refund matrix below, calculated from the first official day of the semester:
-      - Withdrawal prior to Day 1 of classes: 100% tuition refund (less
-        non-refundable registration deposit)
-      - Withdrawal during Weeks 1 and 2 (Add/Drop Period): 80% tuition refund
-      - Withdrawal during Weeks 3 and 4: 50% tuition refund
-      - Withdrawal during Weeks 5 through 8: 20% tuition refund
-      - Withdrawal after Week 8: 0% tuition refund (100% financial liability)
+    - Withdrawal prior to Day 1 of classes: 100% tuition refund (less
+      non-refundable registration deposit)
+    - Withdrawal during Weeks 1 and 2 (Add/Drop Period): 80% tuition refund
+    - Withdrawal during Weeks 3 and 4: 50% tuition refund
+    - Withdrawal during Weeks 5 through 8: 20% tuition refund
+    - Withdrawal after Week 8: 0% tuition refund (100% financial liability)
 3.  Non-tuition fees, including technology levies, health service fees, student
     activity dues, and laboratory breakage deposits, are wholly non-refundable
     after the first day of classes.
@@ -694,23 +694,23 @@ Section 8.1: Academic Integrity and Categories of Misconduct
 1.  Academic integrity is fundamental to the scholarly mission of the
     University. The following non-exhaustive acts constitute severe violations
     of academic integrity:
-      - Plagiarism: Submitting, copying, incorporating, or paraphrasing another
-        individual's intellectual labor, words, ideas, data, or code without
-        full, standard, and explicit academic citation.
-      - Fabrication and Falsification: Inventing, distorting, forging, or
-        manipulating research data, clinical observations, survey results,
-        laboratory metrics, or bibliography entries.
-      - Unauthorized Collaboration: Working collaboratively on assignments,
-        projects, or assessments specifically designated by the instructor as
-        individual work.
-      - Contract Cheating and Impersonation: Paying, commissioning, or arranging
-        for a commercial entity, external individual, or peer to complete
-        coursework or examinations, or impersonating another student during an
-        assessment.
-      - Unauthorized AI Utilization: Generating, altering, or translating graded
-        academic submissions through generative artificial intelligence models
-        or algorithmic synthesis tools, unless explicitly authorized in writing
-        by the instructor's syllabus.
+    - Plagiarism: Submitting, copying, incorporating, or paraphrasing another
+      individual's intellectual labor, words, ideas, data, or code without
+      full, standard, and explicit academic citation.
+    - Fabrication and Falsification: Inventing, distorting, forging, or
+      manipulating research data, clinical observations, survey results,
+      laboratory metrics, or bibliography entries.
+    - Unauthorized Collaboration: Working collaboratively on assignments,
+      projects, or assessments specifically designated by the instructor as
+      individual work.
+    - Contract Cheating and Impersonation: Paying, commissioning, or arranging
+      for a commercial entity, external individual, or peer to complete
+      coursework or examinations, or impersonating another student during an
+      assessment.
+    - Unauthorized AI Utilization: Generating, altering, or translating graded
+      academic submissions through generative artificial intelligence models
+      or algorithmic synthesis tools, unless explicitly authorized in writing
+      by the instructor's syllabus.
 
 Section 8.2: Disciplinary Sanctions for Integrity Violations
 
@@ -718,17 +718,17 @@ Section 8.2: Disciplinary Sanctions for Integrity Violations
     Senate Committee on Academic Integrity in accordance with due process.
 2.  Upon a finding of culpability, the Committee is empowered to administer one
     or more of the following formal disciplinary penalties:
-      - Tier I: Written warning, formal letter of reprimand placed in the
-        internal file, and an unalterable grade of zero (0) on the disputed
-        assignment or quiz.
-      - Tier II: An irreversible assignment of an F grade in the course,
-        forfeiture of honors eligibility, and cancellation of any institutional
-        leadership positions.
-      - Tier III: Mandatory suspension from the University for a duration
-        ranging from one (1) to four (4) full academic semesters.
-      - Tier IV: Permanent, irreversible Expulsion from the University, with an
-        indelible notation of "Expelled for Academic Misconduct" recorded on the
-        official transcript.
+    - Tier I: Written warning, formal letter of reprimand placed in the
+      internal file, and an unalterable grade of zero (0) on the disputed
+      assignment or quiz.
+    - Tier II: An irreversible assignment of an F grade in the course,
+      forfeiture of honors eligibility, and cancellation of any institutional
+      leadership positions.
+    - Tier III: Mandatory suspension from the University for a duration
+      ranging from one (1) to four (4) full academic semesters.
+    - Tier IV: Permanent, irreversible Expulsion from the University, with an
+      indelible notation of "Expelled for Academic Misconduct" recorded on the
+      official transcript.
 
 Section 8.3: Non-Academic Misconduct and General Campus Discipline
 
@@ -736,18 +736,18 @@ Section 8.3: Non-Academic Misconduct and General Campus Discipline
     civil order, safety, mutual respect, and the rule of law.
 2.  The following behaviors constitute severe violations of the Non-Academic
     Code of Conduct:
-      - Physical assault, battery, harassment, stalking, bullying, intimidation,
-        or physical threats directed toward any student, faculty member, staff,
-        or visitor.
-      - Unlawful manufacture, distribution, sale, possession, or consumption of
-        controlled narcotics, illicit drugs, or unauthorized prescription
-        medications on campus grounds.
-      - Hazing, defined as any forced, coerced, or degrading activity designed
-        to humiliate, endanger, or physically harm an individual as a condition
-        of initiation into an organization, athletic team, or
-        fraternity/sorority.
-      - Intentional damage, vandalism, theft, arson, or unauthorized entry into
-        University buildings, computational facilities, or restricted grounds.
+    - Physical assault, battery, harassment, stalking, bullying, intimidation,
+      or physical threats directed toward any student, faculty member, staff,
+      or visitor.
+    - Unlawful manufacture, distribution, sale, possession, or consumption of
+      controlled narcotics, illicit drugs, or unauthorized prescription
+      medications on campus grounds.
+    - Hazing, defined as any forced, coerced, or degrading activity designed
+      to humiliate, endanger, or physically harm an individual as a condition
+      of initiation into an organization, athletic team, or
+      fraternity/sorority.
+    - Intentional damage, vandalism, theft, arson, or unauthorized entry into
+      University buildings, computational facilities, or restricted grounds.
 
 Section 8.4: Disciplinary Investigation, Due Process, and Tribunal Hearings
 
@@ -896,8 +896,8 @@ Section 10.3: Quiet Hours, Courtesy Hours, and Noise Regulations
 1.  To foster an environment conducive to intensive scholarly inquiry and
     adequate rest, mandatory "Quiet Hours" are enforced in all university
     residential facilities during the following times:
-      - Sunday through Thursday: 22:00 to 08:00
-      - Friday and Saturday: 23:59 to 09:00
+    - Sunday through Thursday: 22:00 to 08:00
+    - Friday and Saturday: 23:59 to 09:00
 2.  During designated Quiet Hours, sound emissions emanating from stereos,
     televisions, musical instruments, conversations, or parties must not be
     audible beyond the closed boundaries of a resident's room or suite.
@@ -979,14 +979,14 @@ Section 11.2: Grounds for Formal Academic Appeals
 1.  Substantive academic appeals disputing academic dismissals, course failures,
     academic dishonesty findings, or academic status changes are strictly
     restricted to the following actionable grounds:
-      - Demonstrable procedural irregularity or substantial departure from
-        established university policy during the assessment or administrative
-        process;
-      - Evident personal bias, prejudice, or documented animus on the part of an
-        instructor or committee member;
-      - Newly discovered substantive evidence that was genuinely unavailable at
-        the time of the original decision and could not have been discovered
-        through reasonable diligence.
+    - Demonstrable procedural irregularity or substantial departure from
+      established university policy during the assessment or administrative
+      process;
+    - Evident personal bias, prejudice, or documented animus on the part of an
+      instructor or committee member;
+    - Newly discovered substantive evidence that was genuinely unavailable at
+      the time of the original decision and could not have been discovered
+      through reasonable diligence.
 2.  Disagreement with the academic judgment, intellectual grading standards, or
     rigor of an instructor shall never constitute legitimate grounds for appeal.
 
@@ -1129,139 +1129,139 @@ Section 12.6: Emergency Powers and Institutional Force Majeure
     integrity.
 
 {
-  "unanswerable_questions": [
-    {
-      "id": "UNANS-01",
-      "question": "Can an undergraduate student request an excused absence from a scheduled final exam to attend their immediate sibling's destination wedding?"
-    },
-    {
-      "id": "UNANS-02",
-      "question": "What are the designated electrical charging protocols and amperage limits for personal electric scooters and e-bikes inside campus residence hall bedrooms?"
-    },
-    {
-      "id": "UNANS-03",
-      "question": "Are residential students permitted to keep non-venomous aquarium pets or small fresh-water fish tanks in their dorm rooms, and what is the maximum permissible tank volume?"
-    },
-    {
-      "id": "UNANS-04",
-      "question": "Can a student install an energy-efficient personal mini-refrigerator or compact induction cooktop inside their personal dormitory suite?"
-    },
-    {
-      "id": "UNANS-05",
-      "question": "What is the official permit application procedure for operating commercial drone photography over the campus central quad during student club events?"
-    },
-    {
-      "id": "UNANS-06",
-      "question": "Is running continuous high-performance compute workloads or mining cryptocurrency using the university high-speed campus Wi-Fi network subject to a network bandwidth throttling penalty?"
-    },
-    {
-      "id": "UNANS-07",
-      "question": "What university permit is required for an individual student to sell homemade baked goods or personal used textbooks in campus common areas?"
-    },
-    {
-      "id": "UNANS-08",
-      "question": "Can an international student receive a late course registration extension if their arrival is delayed due to an embassy administrative processing backlog or consular visa strike?"
-    },
-    {
-      "id": "UNANS-09",
-      "question": "Can a commuter student park an oversized camper van or recreational vehicle (RV) overnight in the student perimeter parking lot if they purchase two adjacent standard parking passes?"
-    },
-    {
-      "id": "UNANS-10",
-      "question": "What are the specific safety accommodation rules for students wearing religious ceremonial knives or small blades inside chemistry laboratory environments where protective equipment is mandatory?"
-    },
-    {
-      "id": "UNANS-11",
-      "question": "Can students borrow audiovisual gear from the university library's media center to use for off-campus commercial freelance videography clients?"
-    },
-    {
-      "id": "UNANS-12",
-      "question": "Is an undergraduate allowed to convert an Incomplete ('I') grade if they miss coursework due to participating in the live studio recording of an international reality television series?"
-    },
-    {
-      "id": "UNANS-13",
-      "question": "What are the excused absence guidelines for international students summoned to complete compulsory short-term military reservist training in their home country during the fall semester?"
-    },
-    {
-      "id": "UNANS-14",
-      "question": "Can a graduating student repeat a course they already passed with an 'A' grade simply to raise their CGPA from an 8.85 to an 9.05 to satisfy an external master's scholarship requirement?"
-    },
-    {
-      "id": "UNANS-15",
-      "question": "Are emotional support animals (ESAs) that are not certified service animals allowed to accompany residential students inside the university dining halls during meal hours?"
-    },
-    {
-      "id": "UNANS-16",
-      "question": "Are students residing in top-floor residential rooms permitted to mount portable satellite internet antennas on exterior balcony railings?"
-    },
-    {
-      "id": "UNANS-17",
-      "question": "Can a student apply for an emergency bursary disbursement from the Student Need-Based Bursary Fund to pay for emergency veterinary surgery for a personal companion pet?"
-    },
-    {
-      "id": "UNANS-18",
-      "question": "Can a resident student temporarily swap dormitory keys and assigned rooms with their non-student twin sibling during a weekend family visit?"
-    },
-    {
-      "id": "UNANS-19",
-      "question": "Is the possession and consumption of non-alcoholic beer (0.0% ABV) permitted inside the common study lounges of on-campus residence halls?"
-    },
-    {
-      "id": "UNANS-20",
-      "question": "What procedure must be followed to register an official student investment club that intends to pool active capital from members to trade speculative stock options?"
-    },
-    {
-      "id": "UNANS-21",
-      "question": "Will a student's final examination script be invalidated if they write their long-form theoretical essay answers using red or purple fountain pen ink instead of standard blue or black ink?"
-    },
-    {
-      "id": "UNANS-22",
-      "question": "Can an undergraduate student elect to divide their semester tuition billing into weekly automated micro-installments rather than the standard institutional deferred payment schedule?"
-    },
-    {
-      "id": "UNANS-23",
-      "question": "What administrative office grants physical rooftop access passes for amateur student astronomy clubs wishing to set up optical telescopes during nocturnal meteor showers?"
-    },
-    {
-      "id": "UNANS-24",
-      "question": "Are undergraduate students permitted to donate their unused semester dining swipes to local municipal homeless shelters or food pantries at the end of the term?"
-    },
-    {
-      "id": "UNANS-25",
-      "question": "What disciplinary sanctions apply to a residential student who sublets their campus dormitory bed on peer-to-peer vacation rental websites such as Airbnb during the winter break?"
-    }
-  ],
-  "conflict_queries": [
-    {
-      "id": "CONFLICT-01",
-      "conflict_type": "Attendance Thresholds and Waiver Authority",
-      "query": "What is the absolute minimum attendance percentage required for a student to sit for final examinations, and which institutional authority has the power to lower or waive this requirement?",
-      "conflicting_sections": [
-        "Section 3.1",
-        "Section 5.4",
-        "Section 12.2"
-      ],
-      "nature_of_conflict": "Section 3.1 strictly mandates a 75% attendance threshold with no exceptions allowed by any departmental authority or dean. However, Section 5.4 states that submitting a medical certificate through UHS lowers the threshold to 50% with automatic exam clearance. In further contradiction, Section 12.2 establishes that the University Academic Committee holds the sole and exclusive authority to condone attendance shortfalls, permitting a waiver down to a minimum of 60% and explicitly stating that under no statutory provision may a waiver below 60% be granted."
-    },
-    {
-      "id": "CONFLICT-02",
-      "conflict_type": "Merit Scholarship CGPA Renewal Threshold",
-      "query": "What is the minimum Cumulative Grade Point Average (CGPA) required for an undergraduate student to retain an Institutional Merit Scholarship, and are there exceptions for student-athletes?",
-      "conflicting_sections": [
-        "Section 7.2",
-        "Section 9.1"
-      ],
-      "nature_of_conflict": "Section 7.2 establishes that maintaining an Institutional Merit Scholarship requires a strict minimum CGPA of 8.50 with zero backlogs, stating that falling below 8.50 results in irrevocable termination without exception across all academic and co-curricular cohorts. Conversely, Section 9.1 permits varsity student-athletes to retain their institutional merit scholarships with a lower CGPA of 8.00."
-    },
-    {
-      "id": "CONFLICT-03",
-      "conflict_type": "Grade Review and Re-evaluation Deadline",
-      "query": "How many days does a student have following the publication of semester results to submit a formal application for grade re-evaluation or re-checking?",
-      "conflicting_sections": [
-        "Section 4.3",
-        "Section 11.1"
-      ],
-      "nature_of_conflict": "Section 4.3 dictates that an application for grade re-evaluation must be submitted to the Controller of Examinations within exactly seven (7) calendar days of result publication, after which grades are permanently final and applications summarily rejected. In direct contrast, Section 11.1 allows students to file an Academic Re-checking Petition with the Academic Ombudsperson up to fourteen (14) working days from the date of official grade disclosure."
-    }
-  ]
+"unanswerable_questions": [
+{
+"id": "UNANS-01",
+"question": "Can an undergraduate student request an excused absence from a scheduled final exam to attend their immediate sibling's destination wedding?"
+},
+{
+"id": "UNANS-02",
+"question": "What are the designated electrical charging protocols and amperage limits for personal electric scooters and e-bikes inside campus residence hall bedrooms?"
+},
+{
+"id": "UNANS-03",
+"question": "Are residential students permitted to keep non-venomous aquarium pets or small fresh-water fish tanks in their dorm rooms, and what is the maximum permissible tank volume?"
+},
+{
+"id": "UNANS-04",
+"question": "Can a student install an energy-efficient personal mini-refrigerator or compact induction cooktop inside their personal dormitory suite?"
+},
+{
+"id": "UNANS-05",
+"question": "What is the official permit application procedure for operating commercial drone photography over the campus central quad during student club events?"
+},
+{
+"id": "UNANS-06",
+"question": "Is running continuous high-performance compute workloads or mining cryptocurrency using the university high-speed campus Wi-Fi network subject to a network bandwidth throttling penalty?"
+},
+{
+"id": "UNANS-07",
+"question": "What university permit is required for an individual student to sell homemade baked goods or personal used textbooks in campus common areas?"
+},
+{
+"id": "UNANS-08",
+"question": "Can an international student receive a late course registration extension if their arrival is delayed due to an embassy administrative processing backlog or consular visa strike?"
+},
+{
+"id": "UNANS-09",
+"question": "Can a commuter student park an oversized camper van or recreational vehicle (RV) overnight in the student perimeter parking lot if they purchase two adjacent standard parking passes?"
+},
+{
+"id": "UNANS-10",
+"question": "What are the specific safety accommodation rules for students wearing religious ceremonial knives or small blades inside chemistry laboratory environments where protective equipment is mandatory?"
+},
+{
+"id": "UNANS-11",
+"question": "Can students borrow audiovisual gear from the university library's media center to use for off-campus commercial freelance videography clients?"
+},
+{
+"id": "UNANS-12",
+"question": "Is an undergraduate allowed to convert an Incomplete ('I') grade if they miss coursework due to participating in the live studio recording of an international reality television series?"
+},
+{
+"id": "UNANS-13",
+"question": "What are the excused absence guidelines for international students summoned to complete compulsory short-term military reservist training in their home country during the fall semester?"
+},
+{
+"id": "UNANS-14",
+"question": "Can a graduating student repeat a course they already passed with an 'A' grade simply to raise their CGPA from an 8.85 to an 9.05 to satisfy an external master's scholarship requirement?"
+},
+{
+"id": "UNANS-15",
+"question": "Are emotional support animals (ESAs) that are not certified service animals allowed to accompany residential students inside the university dining halls during meal hours?"
+},
+{
+"id": "UNANS-16",
+"question": "Are students residing in top-floor residential rooms permitted to mount portable satellite internet antennas on exterior balcony railings?"
+},
+{
+"id": "UNANS-17",
+"question": "Can a student apply for an emergency bursary disbursement from the Student Need-Based Bursary Fund to pay for emergency veterinary surgery for a personal companion pet?"
+},
+{
+"id": "UNANS-18",
+"question": "Can a resident student temporarily swap dormitory keys and assigned rooms with their non-student twin sibling during a weekend family visit?"
+},
+{
+"id": "UNANS-19",
+"question": "Is the possession and consumption of non-alcoholic beer (0.0% ABV) permitted inside the common study lounges of on-campus residence halls?"
+},
+{
+"id": "UNANS-20",
+"question": "What procedure must be followed to register an official student investment club that intends to pool active capital from members to trade speculative stock options?"
+},
+{
+"id": "UNANS-21",
+"question": "Will a student's final examination script be invalidated if they write their long-form theoretical essay answers using red or purple fountain pen ink instead of standard blue or black ink?"
+},
+{
+"id": "UNANS-22",
+"question": "Can an undergraduate student elect to divide their semester tuition billing into weekly automated micro-installments rather than the standard institutional deferred payment schedule?"
+},
+{
+"id": "UNANS-23",
+"question": "What administrative office grants physical rooftop access passes for amateur student astronomy clubs wishing to set up optical telescopes during nocturnal meteor showers?"
+},
+{
+"id": "UNANS-24",
+"question": "Are undergraduate students permitted to donate their unused semester dining swipes to local municipal homeless shelters or food pantries at the end of the term?"
+},
+{
+"id": "UNANS-25",
+"question": "What disciplinary sanctions apply to a residential student who sublets their campus dormitory bed on peer-to-peer vacation rental websites such as Airbnb during the winter break?"
+}
+],
+"conflict_queries": [
+{
+"id": "CONFLICT-01",
+"conflict_type": "Attendance Thresholds and Waiver Authority",
+"query": "What is the absolute minimum attendance percentage required for a student to sit for final examinations, and which institutional authority has the power to lower or waive this requirement?",
+"conflicting_sections": [
+"Section 3.1",
+"Section 5.4",
+"Section 12.2"
+],
+"nature_of_conflict": "Section 3.1 strictly mandates a 75% attendance threshold with no exceptions allowed by any departmental authority or dean. However, Section 5.4 states that submitting a medical certificate through UHS lowers the threshold to 50% with automatic exam clearance. In further contradiction, Section 12.2 establishes that the University Academic Committee holds the sole and exclusive authority to condone attendance shortfalls, permitting a waiver down to a minimum of 60% and explicitly stating that under no statutory provision may a waiver below 60% be granted."
+},
+{
+"id": "CONFLICT-02",
+"conflict_type": "Merit Scholarship CGPA Renewal Threshold",
+"query": "What is the minimum Cumulative Grade Point Average (CGPA) required for an undergraduate student to retain an Institutional Merit Scholarship, and are there exceptions for student-athletes?",
+"conflicting_sections": [
+"Section 7.2",
+"Section 9.1"
+],
+"nature_of_conflict": "Section 7.2 establishes that maintaining an Institutional Merit Scholarship requires a strict minimum CGPA of 8.50 with zero backlogs, stating that falling below 8.50 results in irrevocable termination without exception across all academic and co-curricular cohorts. Conversely, Section 9.1 permits varsity student-athletes to retain their institutional merit scholarships with a lower CGPA of 8.00."
+},
+{
+"id": "CONFLICT-03",
+"conflict_type": "Grade Review and Re-evaluation Deadline",
+"query": "How many days does a student have following the publication of semester results to submit a formal application for grade re-evaluation or re-checking?",
+"conflicting_sections": [
+"Section 4.3",
+"Section 11.1"
+],
+"nature_of_conflict": "Section 4.3 dictates that an application for grade re-evaluation must be submitted to the Controller of Examinations within exactly seven (7) calendar days of result publication, after which grades are permanently final and applications summarily rejected. In direct contrast, Section 11.1 allows students to file an Academic Re-checking Petition with the Academic Ombudsperson up to fourteen (14) working days from the date of official grade disclosure."
+}
+]
 }
