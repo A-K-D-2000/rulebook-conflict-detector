@@ -13,14 +13,23 @@ class QueryRequest(BaseModel):
 
 @app.get("/")
 async def serve_home():
-    """Serves the side-by-side verification interface directly."""
     return FileResponse("templates/index.html")
 
 @app.post("/ask")
 async def ask_endpoint(payload: QueryRequest):
-    """
-    Main RAG API endpoint.
-    Accepts: { "query": "string" }
-    Returns: status, answer, citations, conflict_details, passages with similarity scores.
-    """
-    result = query_ruleboo
+    try:
+        result = query_rulebook(payload.query)
+        return result
+    except Exception as e:
+        return {
+            "query": payload.query,
+            "status": "not_covered",
+            "answer": f"Error processing query: {str(e)}",
+            "citations": [],
+            "conflict_details": None,
+            "passages": []
+        }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)

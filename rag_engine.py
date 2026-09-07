@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import math
 import time
@@ -30,7 +31,7 @@ def cosine_similarity(vec1, vec2):
     return dot / (norm1 * norm2)
 
 def retrieve_top_sections(query, top_k=5):
-    # Retry embedding call if needed
+    query_vector = None
     for attempt in range(4):
         try:
             res = client.models.embed_content(
@@ -39,11 +40,14 @@ def retrieve_top_sections(query, top_k=5):
             )
             query_vector = res.embeddings[0].values
             break
-        except (ServerError, APIError) as e:
+        except (ServerError, APIError):
             if attempt < 3:
-                time.sleep(3 * (attempt + 1))
+                time.sleep(2 * (attempt + 1))
             else:
-                raise e
+                raise
+
+    if not query_vector:
+        return []
 
     scored_sections = []
     for sec in SECTIONS_DATABASE:
@@ -92,15 +96,9 @@ def query_rulebook(query: str):
         context_blocks.append(f"[{p['id']} - {p['title']} (Score: {p['score']})]\n{p['text']}")
     context_text = "\n\n---\n\n".join(context_blocks)
 
-    user_message = f"""USER QUERY:
-{query}
-
-RETRIEVED RULEBOOK PASSAGES:
-{context_text}
-"""
+    user_message = f"USER QUERY:\n{query}\n\nRETRIEVED RULEBOOK PASSAGES:\n{context_text}"
 
     response = None
-    # Retry on temporary Google server overload (503/429)
     for attempt in range(4):
         try:
             response = client.models.generate_content(
@@ -113,19 +111,23 @@ RETRIEVED RULEBOOK PASSAGES:
                 )
             )
             break
-        except (ServerError, APIError) as e:
+        except (ServerError, APIError):
             if attempt < 3:
-                print(f"    (Google server busy, retrying in {(attempt + 1) * 3}s...)")
-                time.sleep((attempt + 1) * 3)
+                time.sleep(2 * (attempt + 1))
             else:
-                raise e
+                raise
+
+    raw_text = response.text.strip() if response else "{}"
+    # Remove any markdown backticks if returned
+    raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
+    raw_text = re.sub(r"\s*```$", "", raw_text)
 
     try:
-        parsed_result = json.loads(response.text)
+        parsed_result = json.loads(raw_text)
     except Exception:
         parsed_result = {
             "status": "answered",
-            "answer": response.text if response else "Error parsing response.",
+            "answer": raw_text,
             "citations": [],
             "conflict_details": None
         }
@@ -146,11 +148,3 @@ RETRIEVED RULEBOOK PASSAGES:
             for p in top_passages
         ]
     }
-
-if __name__ == "__main__":
-    test_q = "What attendance percentage is needed for exams?"
-    print(f"Testing with query: '{test_q}'\n")
-    result = query_rulebook(test_q)
-    print(f"Status: {result['status']}")
-    print(f"Answer: {result['answer']}")
-    print(f"Passages Retrieved: {len(result['passages'])}")
