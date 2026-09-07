@@ -5,7 +5,6 @@ import time
 from dotenv import load_dotenv
 from google import genai
 
-# Load API key from .env file
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
 
@@ -15,77 +14,71 @@ if not api_key:
 client = genai.Client(api_key=api_key)
 
 def parse_rulebook(file_path="rulebook.md"):
-    """
-    Parses rulebook.md into structured sections with Chapter, Section number,
-    title, and body text.
-    """
-    with open(file_path, "r", encoding="utf-8") as f:
-        content = f.read()
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"Could not find {file_path}")
 
-    # Split by chapters
-    chapter_pattern = r"(## Chapter \d+: [^\n]+)"
-    chapters_raw = re.split(chapter_pattern, content)
+    with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+        text = f.read()
 
+    # Normalize line breaks
+    text = text.replace("\r\n", "\n")
+
+    # Match sections whether preceded by ### or nothing at all
+    # Matches "Section 1.1: Title" or "### Section 1.1: Title"
+    section_pattern = re.compile(
+        r"(?:^|\n)(?:###\s*)?(Section\s+(\d+\.\d+):?\s*([^\n]+))\n(.*?)(?=(?:\n(?:###\s*)?Section\s+\d+\.\d+|\Z))",
+        re.DOTALL
+    )
+
+    # Match chapters whether preceded by ## or nothing at all
+    chapter_pattern = re.compile(
+        r"(?:^|\n)(?:##\s*)?(Chapter\s+\d+:\s*[^\n]+)"
+    )
+
+    chapter_matches = list(chapter_pattern.finditer(text))
     sections = []
-    current_chapter = "General"
 
-    for part in chapters_raw:
-        part = part.strip()
-        if not part:
-            continue
-        if part.startswith("## Chapter"):
-            current_chapter = part.replace("## ", "").strip()
-            continue
+    for match in section_pattern.finditer(text):
+        full_sec_header = match.group(1).strip()
+        sec_id = f"Section {match.group(2).strip()}"
+        sec_title = match.group(3).strip()
+        sec_body = match.group(4).strip()
+        sec_start = match.start()
 
-        # Split current chapter into sections
-        section_pattern = r"(### Section \d+\.\d+: [^\n]+)"
-        section_parts = re.split(section_pattern, part)
+        current_chapter = "General Regulations"
+        for ch in chapter_matches:
+            if ch.start() < sec_start:
+                current_chapter = ch.group(1).strip()
+            else:
+                break
 
-        current_section_header = None
-        for sec_part in section_parts:
-            sec_part = sec_part.strip()
-            if not sec_part:
-                continue
-            if sec_part.startswith("### Section"):
-                current_section_header = sec_part.replace("### ", "").strip()
-            elif current_section_header:
-                # Extract section number and title
-                match = re.match(r"(Section \d+\.\d+):\s*(.*)", current_section_header)
-                sec_id = match.group(1) if match else current_section_header
-                sec_title = match.group(2) if match else ""
-
-                sections.append({
-                    "id": sec_id,
-                    "title": sec_title,
-                    "chapter": current_chapter,
-                    "text": sec_part,
-                    "full_reference": f"{current_chapter} - {current_section_header}"
-                })
-                current_section_header = None
+        sections.append({
+            "id": sec_id,
+            "title": sec_title,
+            "chapter": current_chapter,
+            "text": sec_body,
+            "full_reference": f"{current_chapter} - {sec_id}: {sec_title}"
+        })
 
     return sections
 
 def generate_embeddings_and_save(sections, output_file="sections_index.json"):
-    """
-    Computes text embeddings using Gemini's text-embedding-004
-    and saves the indexed data locally.
-    """
     print(f"Found {len(sections)} sections in rulebook.md.")
-    print("Generating embeddings using Google Gemini (text-embedding-004)...")
+    if len(sections) == 0:
+        print("Warning: No sections found! Check the text in rulebook.md.")
+        return
 
+    print("Generating embeddings using Google Gemini (gemini-embedding-001)...")
     indexed_data = []
 
     for idx, sec in enumerate(sections, 1):
-        # Embed header + content together for rich context retrieval
         embed_input = f"{sec['full_reference']}\n{sec['text']}"
-
         try:
             response = client.models.embed_content(
-                model="text-embedding-004",
+                model="gemini-embedding-001",
                 contents=embed_input
             )
             embedding = response.embeddings[0].values
-
             indexed_data.append({
                 "id": sec["id"],
                 "title": sec["title"],
@@ -95,14 +88,14 @@ def generate_embeddings_and_save(sections, output_file="sections_index.json"):
                 "embedding": embedding
             })
             print(f"  [{idx}/{len(sections)}] Indexed: {sec['id']} - {sec['title']}")
-            time.sleep(0.3)  # Gentle delay to respect free rate limits
+            time.sleep(0.3)
         except Exception as e:
             print(f"  Error indexing {sec['id']}: {e}")
 
     with open(output_file, "w", encoding="utf-8") as out:
         json.dump(indexed_data, out, indent=2)
 
-    print(f"\nDone! Successfully saved indexed data to {output_file}")
+    print(f"\nDone! Successfully saved {len(indexed_data)} indexed sections to {output_file}")
 
 if __name__ == "__main__":
     parsed_sections = parse_rulebook("rulebook.md")
