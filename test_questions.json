@@ -1,0 +1,137 @@
+{
+  "unanswerable_questions": [
+    {
+      "id": "UNANS-01",
+      "question": "Can an undergraduate student request an excused absence from a scheduled final exam to attend their immediate sibling's destination wedding?"
+    },
+    {
+      "id": "UNANS-02",
+      "question": "What are the designated electrical charging protocols and amperage limits for personal electric scooters and e-bikes inside campus residence hall bedrooms?"
+    },
+    {
+      "id": "UNANS-03",
+      "question": "Are residential students permitted to keep non-venomous aquarium pets or small fresh-water fish tanks in their dorm rooms, and what is the maximum permissible tank volume?"
+    },
+    {
+      "id": "UNANS-04",
+      "question": "Can a student install an energy-efficient personal mini-refrigerator or compact induction cooktop inside their personal dormitory suite?"
+    },
+    {
+      "id": "UNANS-05",
+      "question": "What is the official permit application procedure for operating commercial drone photography over the campus central quad during student club events?"
+    },
+    {
+      "id": "UNANS-06",
+      "question": "Is running continuous high-performance compute workloads or mining cryptocurrency using the university high-speed campus Wi-Fi network subject to a network bandwidth throttling penalty?"
+    },
+    {
+      "id": "UNANS-07",
+      "question": "What university permit is required for an individual student to sell homemade baked goods or personal used textbooks in campus common areas?"
+    },
+    {
+      "id": "UNANS-08",
+      "question": "Can an international student receive a late course registration extension if their arrival is delayed due to an embassy administrative processing backlog or consular visa strike?"
+    },
+    {
+      "id": "UNANS-09",
+      "question": "Can a commuter student park an oversized camper van or recreational vehicle (RV) overnight in the student perimeter parking lot if they purchase two adjacent standard parking passes?"
+    },
+    {
+      "id": "UNANS-10",
+      "question": "What are the specific safety accommodation rules for students wearing religious ceremonial knives or small blades inside chemistry laboratory environments where protective equipment is mandatory?"
+    },
+    {
+      "id": "UNANS-11",
+      "question": "Can students borrow audiovisual gear from the university library's media center to use for off-campus commercial freelance videography clients?"
+    },
+    {
+      "id": "UNANS-12",
+      "question": "Is an undergraduate allowed to convert an Incomplete ('I') grade if they miss coursework due to participating in the live studio recording of an international reality television series?"
+    },
+    {
+      "id": "UNANS-13",
+      "question": "What are the excused absence guidelines for international students summoned to complete compulsory short-term military reservist training in their home country during the fall semester?"
+    },
+    {
+      "id": "UNANS-14",
+      "question": "Can a graduating student repeat a course they already passed with an 'A' grade simply to raise their CGPA from an 8.85 to an 9.05 to satisfy an external master's scholarship requirement?"
+    },
+    {
+      "id": "UNANS-15",
+      "question": "Are emotional support animals (ESAs) that are not certified service animals allowed to accompany residential students inside the university dining halls during meal hours?"
+    },
+    {
+      "id": "UNANS-16",
+      "question": "Are students residing in top-floor residential rooms permitted to mount portable satellite internet antennas on exterior balcony railings?"
+    },
+    {
+      "id": "UNANS-17",
+      "question": "Can a student apply for an emergency bursary disbursement from the Student Need-Based Bursary Fund to pay for emergency veterinary surgery for a personal companion pet?"
+    },
+    {
+      "id": "UNANS-18",
+      "question": "Can a resident student temporarily swap dormitory keys and assigned rooms with their non-student twin sibling during a weekend family visit?"
+    },
+    {
+      "id": "UNANS-19",
+      "question": "Is the possession and consumption of non-alcoholic beer (0.0% ABV) permitted inside the common study lounges of on-campus residence halls?"
+    },
+    {
+      "id": "UNANS-20",
+      "question": "What procedure must be followed to register an official student investment club that intends to pool active capital from members to trade speculative stock options?"
+    },
+    {
+      "id": "UNANS-21",
+      "question": "Will a student's final examination script be invalidated if they write their long-form theoretical essay answers using red or purple fountain pen ink instead of standard blue or black ink?"
+    },
+    {
+      "id": "UNANS-22",
+      "question": "Can an undergraduate student elect to divide their semester tuition billing into weekly automated micro-installments rather than the standard institutional deferred payment schedule?"
+    },
+    {
+      "id": "UNANS-23",
+      "question": "What administrative office grants physical rooftop access passes for amateur student astronomy clubs wishing to set up optical telescopes during nocturnal meteor showers?"
+    },
+    {
+      "id": "UNANS-24",
+      "question": "Are undergraduate students permitted to donate their unused semester dining swipes to local municipal homeless shelters or food pantries at the end of the term?"
+    },
+    {
+      "id": "UNANS-25",
+      "question": "What disciplinary sanctions apply to a residential student who sublets their campus dormitory bed on peer-to-peer vacation rental websites such as Airbnb during the winter break?"
+    }
+  ],
+  "conflict_queries": [
+    {
+      "id": "CONFLICT-01",
+      "conflict_type": "Attendance Thresholds and Waiver Authority",
+      "query": "What is the absolute minimum attendance percentage required for a student to sit for final examinations, and which institutional authority has the power to lower or waive this requirement?",
+      "conflicting_sections": [
+        "Section 3.1",
+        "Section 5.4",
+        "Section 12.2"
+      ],
+      "nature_of_conflict": "Section 3.1 strictly mandates a 75% attendance threshold with no exceptions allowed by any departmental authority or dean. However, Section 5.4 states that submitting a medical certificate through UHS lowers the threshold to 50% with automatic exam clearance. In further contradiction, Section 12.2 establishes that the University Academic Committee holds the sole and exclusive authority to condone attendance shortfalls, permitting a waiver down to a minimum of 60% and explicitly stating that under no statutory provision may a waiver below 60% be granted."
+    },
+    {
+      "id": "CONFLICT-02",
+      "conflict_type": "Merit Scholarship CGPA Renewal Threshold",
+      "query": "What is the minimum Cumulative Grade Point Average (CGPA) required for an undergraduate student to retain an Institutional Merit Scholarship, and are there exceptions for student-athletes?",
+      "conflicting_sections": [
+        "Section 7.2",
+        "Section 9.1"
+      ],
+      "nature_of_conflict": "Section 7.2 establishes that maintaining an Institutional Merit Scholarship requires a strict minimum CGPA of 8.50 with zero backlogs, stating that falling below 8.50 results in irrevocable termination without exception across all academic and co-curricular cohorts. Conversely, Section 9.1 permits varsity student-athletes to retain their institutional merit scholarships with a lower CGPA of 8.00."
+    },
+    {
+      "id": "CONFLICT-03",
+      "conflict_type": "Grade Review and Re-evaluation Deadline",
+      "query": "How many days does a student have following the publication of semester results to submit a formal application for grade re-evaluation or re-checking?",
+      "conflicting_sections": [
+        "Section 4.3",
+        "Section 11.1"
+      ],
+      "nature_of_conflict": "Section 4.3 dictates that an application for grade re-evaluation must be submitted to the Controller of Examinations within exactly seven (7) calendar days of result publication, after which grades are permanently final and applications summarily rejected. In direct contrast, Section 11.1 allows students to file an Academic Re-checking Petition with the Academic Ombudsperson up to fourteen (14) working days from the date of official grade disclosure."
+    }
+  ]
+}
